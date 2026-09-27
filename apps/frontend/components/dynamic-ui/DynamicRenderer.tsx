@@ -1,10 +1,18 @@
 "use client";
 import { useDynamicComponent } from "../../hooks/useDynamicComponent";
 import { GeneratedUI } from "./GeneratedUI";
+import FallbackUI from "./FallbackUI";
 
 export function DynamicRenderer() {
-  const { componentKey, componentProps, setComponent } = useDynamicComponent("card");
-
+ const {
+  componentKey,
+  componentProps,
+  setComponent,
+  clearComponent,
+} = useDynamicComponent("card");
+<button onClick={clearComponent}>
+  Clear Component
+</button>
   return (
     <section>
       <h2>Dynamic Renderer</h2>
@@ -19,11 +27,22 @@ export function DynamicRenderer() {
         <button onClick={() => setComponent("banner", { message: "Generated Banner" })}>
           Load Banner
         </button>
+        <button onClick={clearComponent}>
+  Clear Component
+</button>
       </div>
 
-      {componentKey && (
-        <GeneratedUI componentKey={componentKey} componentProps={componentProps} />
-      )}
+      {componentKey ? (
+  <GeneratedUI
+    componentKey={componentKey}
+    componentProps={componentProps}
+  />
+) : (
+  <FallbackUI
+    variant="error"
+    message="Unable to load the generated component."
+  />
+)}
     </section>
   );
 }
