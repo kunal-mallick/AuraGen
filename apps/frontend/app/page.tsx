@@ -2,6 +2,17 @@
 
 import { useMouseTelemetry } from "../hooks/useMouseTelemetry";
 import { DynamicRenderer } from "../components/dynamic-ui/DynamicRenderer";
+import DynamicCodeRenderer from "../components/dynamic-ui/DynamicCodeRenderer";
+const generatedCode = `
+function GeneratedComponent(props) {
+  return (
+    <div>
+      <h2>Generated UI</h2>
+      <p>{props.message}</p>
+    </div>
+  );
+}
+`;
 
 export default function Home() {
   const { velocity, hesitationDuration } = useMouseTelemetry();
@@ -10,6 +21,10 @@ export default function Home() {
     <main>
       <h1>Telemetry Tracker</h1>
       <DynamicRenderer />
+      <DynamicCodeRenderer
+  code={generatedCode}
+  componentProps={{ message: "Dynamic injection is working!" }}
+/>
 
       <div>
         <h2>Mouse Velocity</h2>
