@@ -1,5 +1,5 @@
 "use client";
-
+import MorphingDemo from "../components/MorphingDemo";
 import { useMouseTelemetry } from "../hooks/useMouseTelemetry";
 import { DynamicRenderer } from "../components/dynamic-ui/DynamicRenderer";
 import DynamicCodeRenderer from "../components/dynamic-ui/DynamicCodeRenderer";
@@ -25,6 +25,7 @@ export default function Home() {
   code={generatedCode}
   componentProps={{ message: "Dynamic injection is working!" }}
 />
+<MorphingDemo />
 
       <div>
         <h2>Mouse Velocity</h2>
