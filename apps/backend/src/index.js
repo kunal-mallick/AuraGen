@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const generateRoute = require('./api/routes/generate.route');
+ 
 
 const healthRoute = require('./api/routes/health.route');
 const aiRoute = require('./api/routes/ai.route');
@@ -13,6 +15,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
+app.use('/api/generate', generateRoute);
 
 // Health route
 app.use('/api/health', healthRoute);

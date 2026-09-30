@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "root": {
+    "type": "Wizard",
+    "id": "wizard-1",
+    "props": { "title": "Loan application" },
+    "children": [
+      {
+        "type": "Card", "id": "step-1", "props": { "title": "About you" },
+        "children": [
+          { "type": "Input", "id": "f-name", "props": { "name": "fullName", "label": "Full name", "value": "Asha Rao" }, "children": [] },
+          { "type": "Input", "id": "f-email", "props": { "name": "email", "label": "Email", "type": "email", "value": "asha@example.com" }, "children": [] },
+          { "type": "Button", "id": "b-next-1", "props": { "label": "Next", "action": "next" }, "children": [] }
+        ]
+      },
+      {
+        "type": "Card", "id": "step-2", "props": { "title": "Employment" },
+        "children": [
+          { "type": "Radio", "id": "f-emp", "props": { "name": "employment", "label": "Employment type", "options": ["Salaried", "Self-employed", "Student"] }, "children": [] },
+          { "type": "Button", "id": "b-back-2", "props": { "label": "Back", "action": "back", "variant": "secondary" }, "children": [] },
+          { "type": "Button", "id": "b-submit", "props": { "label": "Submit", "action": "submit" }, "children": [] }
+        ]
+      }
+    ]
+  }
+}
