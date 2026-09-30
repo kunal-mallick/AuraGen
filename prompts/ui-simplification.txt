@@ -1,0 +1,24 @@
+Simplify the UI described in the CONTEXT below. Follow all the rules you were given.
+
+=== EXAMPLE (abbreviated) ===
+<example_input>
+{
+  "cognitiveLoad": { "score": 0.82, "level": "high" },
+  "problematicElement": { "id": "f-plan" },
+  "analysis": { "fieldCount": 5, "fieldNames": ["fullName", "email", "plan", "phone", "city"] },
+  "hints": [
+    "Select 'f-plan' has only 3 options: convert it to a Radio.",
+    "The UI has 5 fields on one screen: split it into a Wizard with at most 4 fields per step."
+  ],
+  "currentUi": "(omitted here for brevity: one Card with the 5 fields above, plan is a Select with Free, Pro, Team)"
+}
+</example_input>
+<example_output>
+{"version":"1.0","root":{"type":"Wizard","id":"wizard-1","props":{"title":"Sign up"},"children":[{"type":"Card","id":"step-1","props":{"title":"About you"},"children":[{"type":"Input","id":"f-fullName","props":{"name":"fullName","label":"Full name"},"children":[]},{"type":"Input","id":"f-email","props":{"name":"email","label":"Email address","type":"email","helpText":"We will send your receipt here"},"children":[]},{"type":"Button","id":"b-next-1","props":{"label":"Next","action":"next"},"children":[]}]},{"type":"Card","id":"step-2","props":{"title":"Your plan and contact"},"children":[{"type":"Radio","id":"f-plan","props":{"name":"plan","label":"Choose a plan","options":["Free","Pro","Team"]},"children":[]},{"type":"Input","id":"f-phone","props":{"name":"phone","label":"Phone number","type":"tel"},"children":[]},{"type":"Input","id":"f-city","props":{"name":"city","label":"City"},"children":[]},{"type":"Button","id":"b-back-2","props":{"label":"Back","action":"back","variant":"secondary"},"children":[]},{"type":"Button","id":"b-submit","props":{"label":"Submit","action":"submit"},"children":[]}]}]}}
+</example_output>
+=== END EXAMPLE ===
+
+CONTEXT:
+{{CONTEXT}}
+
+Return the simplified UI as a single JSON object now.
