@@ -1,0 +1,16 @@
+# dependencies & builds
+node_modules/
+.next/
+out/
+# secrets: never commit these
+.env
+.env.*
+!.env.example
+# generated / local
+backend/bench/RESULTS.md
+e2e/*.png
+__pycache__/
+*.log
+.DS_Store
+.vscode/
+.idea/
